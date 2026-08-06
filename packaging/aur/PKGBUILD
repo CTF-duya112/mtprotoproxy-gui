@@ -8,7 +8,7 @@ url="https://github.com/CTF-duya112/mtprotoproxy-gui"
 license=('MIT')
 depends=('python' 'python-pyside6' 'python-cryptography')
 source=("mtprotoproxy-gui-$pkgver.tar.gz::https://github.com/CTF-duya112/mtprotoproxy-gui/archive/refs/tags/v$pkgver.tar.gz")
-sha256sums=('SHA256_HERE')
+sha256sums=('26293af840cfe238ced0b2d8bd1d218d1151b1b245051e867f675579891f52c5')
 
 package() {
   cd "$srcdir/mtprotoproxy-gui-$pkgver"
