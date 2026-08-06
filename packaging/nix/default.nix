@@ -9,6 +9,8 @@ python3Packages.buildPythonApplication {
 
   dontUnpack = true;
 
+  format = "other";
+
   nativeBuildInputs = [ makeWrapper ];
 
   propagatedBuildInputs = with python3Packages; [

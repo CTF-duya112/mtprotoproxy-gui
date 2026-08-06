@@ -6,7 +6,8 @@
   outputs = { self, nixpkgs }:
     let
       systems = [ "x86_64-linux" "aarch64-linux" ];
-      forAllSystems = f: builtins.map (s: f s) systems;
+      forAllSystems = f:
+        builtins.foldl' (acc: s: acc // { ${s} = f s; }) { } systems;
     in
     {
       packages = forAllSystems (system:
