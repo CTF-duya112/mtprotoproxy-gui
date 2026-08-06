@@ -4,6 +4,7 @@ MTProto 代理的图形化配置工具：开箱即用的 tkinter 界面，一键
 
 - 核心协议逻辑来自 [alexbers/mtprotoproxy](https://github.com/alexbers/mtprotoproxy)（MIT），见 `core.py`，逻辑保持一致。
 - GUI 使用 Python 标准库 tkinter，无需额外依赖即可运行（推荐安装 `cryptography` 以加速 AES）。
+- Wayland 原生版（PySide6/Qt6，含 Nix / AUR 打包）在独立仓库 [mtprotoproxy-gui-wayland](https://github.com/CTF-duya112/mtprotoproxy-gui-wayland)。
 
 ## 功能
 
@@ -21,15 +22,14 @@ MTProto 代理的图形化配置工具：开箱即用的 tkinter 界面，一键
 # 需要 Python 3.10+
 pip install cryptography   # 可选，显著提升性能
 
-python3 gui.py              # tkinter 版（经 XWayland 可在 Wayland 下运行）
-python3 gui_wayland.py      # PySide6/Qt6 版，原生 Wayland，无需 XWayland
+python3 gui.py
 ```
 
 Windows 可直接使用打包好的 `dist/MTProtoProxyGUI.exe`（无需 Python）。
 
 ## 已发布二进制
 
-见 `dist/` 目录：
+见 `dist/` 目录（或 GitHub Release）：
 
 - `MTProtoProxyGUI.exe` — Windows（PyInstaller 单文件，tkinter 界面）
 - `mtprotoproxy-gui-1.0.0-1.sga8.noarch.rpm` — RHEL/CentOS/Sugon 系（`rpm -ivh`）
@@ -43,13 +43,8 @@ Windows 可直接使用打包好的 `dist/MTProtoProxyGUI.exe`（无需 Python�
 
 - `packaging/rpm/mtprotoproxy-gui.spec` — rpm 打包脚本（`rpmbuild -bb`）
 - `packaging/deb/build_deb.sh` — 手工构造 .deb 的脚本（无需 dpkg-deb）
-- `packaging/nix/` — Nix/NixOS 打包（flake，`nix run github:CTF-duya112/mtprotoproxy-gui`）
-- `packaging/aur/PKGBUILD` — Arch Linux AUR（依赖 `python-pyside6`）
 
-## Wayland 版
-
-`gui_wayland.py` 使用 PySide6(Qt6) 重写，原生 Wayland 后端，在 Hyprland / niri 等
-合成器下无需 XWayland 即可运行，功能与 tkinter 版一致。
+Wayland 版（PySide6）及其 Nix / AUR 打包见 [mtprotoproxy-gui-wayland](https://github.com/CTF-duya112/mtprotoproxy-gui-wayland)。
 
 ## License
 
