@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+build/
+*.spec~*
+gui_config.json
+_runtime_config.py
