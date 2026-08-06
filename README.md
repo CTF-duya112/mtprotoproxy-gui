@@ -21,7 +21,8 @@ MTProto 代理的图形化配置工具：开箱即用的 tkinter 界面，一键
 # 需要 Python 3.10+
 pip install cryptography   # 可选，显著提升性能
 
-python3 gui.py
+python3 gui.py              # tkinter 版（经 XWayland 可在 Wayland 下运行）
+python3 gui_wayland.py      # PySide6/Qt6 版，原生 Wayland，无需 XWayland
 ```
 
 Windows 可直接使用打包好的 `dist/MTProtoProxyGUI.exe`（无需 Python）。
@@ -42,8 +43,13 @@ Windows 可直接使用打包好的 `dist/MTProtoProxyGUI.exe`（无需 Python�
 
 - `packaging/rpm/mtprotoproxy-gui.spec` — rpm 打包脚本（`rpmbuild -bb`）
 - `packaging/deb/build_deb.sh` — 手工构造 .deb 的脚本（无需 dpkg-deb）
-- `packaging/nix/` — Nix/NixOS 打包（flake）
-- `packaging/aur/PKGBUILD` — Arch Linux AUR
+- `packaging/nix/` — Nix/NixOS 打包（flake，`nix run github:CTF-duya112/mtprotoproxy-gui`）
+- `packaging/aur/PKGBUILD` — Arch Linux AUR（依赖 `python-pyside6`）
+
+## Wayland 版
+
+`gui_wayland.py` 使用 PySide6(Qt6) 重写，原生 Wayland 后端，在 Hyprland / niri 等
+合成器下无需 XWayland 即可运行，功能与 tkinter 版一致。
 
 ## License
 
